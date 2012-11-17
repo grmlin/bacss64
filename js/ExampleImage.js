@@ -24,7 +24,7 @@ ExampleImage.prototype = {
                 }
             }
             content += '<div class="preview"></div>';
-            content += '<div><textarea rows="5" cols="60">' + cssString + '</textarea> </div>';
+            content += '<div><textarea rows="7" cols="60">' + cssString + '</textarea> </div>';
 
             li.innerHTML = content;
 
