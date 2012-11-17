@@ -3,23 +3,13 @@ var ImageContainer = function (file) {
 };
 
 ImageContainer.prototype = {
-    _getSvgString : function (svgXml) {
-        var parser = new DOMParser();
-        var xmlDoc = parser.parseFromString(svgXml, "text/xml");
-        var serializer = new XMLSerializer();
-        var svg = serializer.serializeToString(xmlDoc.querySelector('svg'));
-        return svg;
-    },
     getBase64Url : function (callback) {
         var reader = new FileReader();
-
+        reader.readAsDataURL(this._file);
         reader.onload = function (e) {
-            var svg = this._getSvgString(e.target.result),
-                base64 = Base64.encode(svg);
-            callback.call(null, "data:" + this._file.type + ";base64," + base64);
+            callback.call(null, e.target.result);
         }.bind(this);
 
-        reader.readAsText(this._file);
     },
     getCssDeclaration : function (callback) {
         var name = this._file.name.match(/(.+?)(\.[^.]*$|$)/)[1];
@@ -34,4 +24,5 @@ ImageContainer.prototype = {
         }.bind(this));
 
     }
-};
+}
+;

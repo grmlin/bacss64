@@ -19,20 +19,28 @@
     <link rel="stylesheet" href="css/bootstrap/css/bootstrap.min.css">
 
     <style type="text/css">
-        #examples ul li + li {
-            margin-top: 20px;
+        #examples ul {
+            display: table;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0;
         }
         
-        #examples ul li div:first-child {
-            float: left;
+        #examples ul li {
+            display: table-row;
         }
         
-        #examples ul li div+div {
-            overflow: auto;
-            padding-left: 20px;
+        #examples ul li div {
+            display: table-cell;
         }
 
-        #examples ul li div+div textarea {
+        #examples ul li + li div {
+            padding-top: 20px;
+        }
+        #examples ul li div:first-child {
+            vertical-align: middle;
+        }
+        #examples ul li textarea {
             width: 100%;
             box-sizing: border-box;
         }
@@ -54,6 +62,8 @@
 
             <p class="muted">an image to base64 based css declarations generator.</p>
         </div>
+        <p class="text-info"><strong>this tool works in chrome, didn't test it elsewhere</strong></p>
+
     </div>
     <div class="row-fluid">
         <div class="span12">
